@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-web-app
+  namespace: argocd
+spec:
+  project: default
+
+  # Where your manifests live
+  source:
+    repoURL: 'https://github.com/mlhdev/argocd-app.git'
+    targetRevision: main
+    path: dev   # folder containing deployment.yaml, service.yaml, configmap.yaml
+
+  # Where to deploy
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+
+  # Optional: automatic sync
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      prune: true
+      selfHeal: true
