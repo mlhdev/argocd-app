@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-html
-  namespace: default
+  namespace: my-web-app
 data:
   index.html: |
     <!DOCTYPE html>
