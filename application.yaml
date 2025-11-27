@@ -15,7 +15,7 @@ spec:
   # Where to deploy
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: my-web-app
 
   # Optional: automatic sync
   syncPolicy:
